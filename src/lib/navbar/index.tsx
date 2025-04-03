@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiList, FiSearch, FiUser, FiBookmark, FiLogOut, FiHeart } from "react-icons/fi";
+import { FiList, FiSearch, FiBookmark, FiLogOut, FiHeart } from "react-icons/fi";
 import { FaPaw } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
