@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiList, FiSearch, FiBookmark, FiLogOut, FiHeart } from "react-icons/fi";
+import { FiList, FiSearch, FiBookmark, FiLogOut, FiHeart, FiHome } from "react-icons/fi";
 import { FaPaw } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
@@ -113,6 +113,17 @@ const Navbar: React.FC<NavbarProps> = ({ filter, setFilter, page }) => {
               <div className="px-4 py-3 border-b border-gray-700">
                 <p className="text-sm font-medium text-pink-400">User Menu</p>
               </div>
+
+              <button
+                className="flex items-center w-full px-4 py-3 text-sm text-gray-200 hover:bg-gray-700 transition-colors group"
+                onClick={() => {
+                  setShowDropdown(false);
+                  navigate("/home");
+                }}
+              >
+                <FiHome className="mr-3 text-pink-400 group-hover:text-pink-300" />
+                Home
+              </button>
 
               <button
                 className="flex items-center w-full px-4 py-3 text-sm text-gray-200 hover:bg-gray-700 transition-colors group"
