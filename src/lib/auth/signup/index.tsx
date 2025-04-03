@@ -154,7 +154,8 @@ export default function SignUpForm() {
                 title="Must be at least 8 characters and include uppercase, lowercase, numeric, and special characters."
               />
             </LabelInputContainer>
-
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            
             <button
               className="group/btn relative block h-10 w-full rounded-md bg-transparent text-white font-semibold text-sm border-2 border-neutral-400 cursor-pointer"
               type="submit"
