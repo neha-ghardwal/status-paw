@@ -36,7 +36,6 @@ const ViewModal: React.FC<ViewModalProps> = ({ list, onClose, onUpdateList }) =>
       updatedAt: Date.now(),
     };
 
-    // Immediately update the local state and parent's state
     setLocalList(updatedList);
     onUpdateList(updatedList);
 
@@ -80,35 +79,35 @@ const ViewModal: React.FC<ViewModalProps> = ({ list, onClose, onUpdateList }) =>
         </div>
 
         <div className="flex-grow overflow-y-auto pr-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
-                {localList.imageLinks.map((image, index) => (
-                <div key={`${list.id}-${index}-${list.codes[index]}`} className="flex flex-col">
-                    <div className="aspect-square relative group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                    <img
-                        src={image}
-                        alt={`HTTP ${list.codes[index]} status dog`}
-                        className="w-full h-full object-cover border-b border-gray-200"
-                    />
-                    <button
-                        onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteImage(index);
-                        }}
-                        className="absolute top-1 right-1 p-1.5 bg-red-500/90 hover:bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150 shadow-sm"
-                        aria-label={`Delete HTTP ${list.codes[index]} image`}
-                    >
-                        <FiTrash2 className="w-4 h-4" />
-                    </button>
-                    </div>
-                    <div className="mt-2 p-3 bg-gray-50 rounded-lg shadow">
-                    <div className="text-sm font-semibold text-red-800">
-                        Response Code: {list.codes[index]}
-                    </div>
-                    <div className="text-xs text-gray-400 font-mono truncate">
-                        Image - [{image.replace('https://', '')}]
-                    </div>
-                    </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+            {localList.imageLinks.map((image, index) => (
+              <div key={`${list.id}-${index}-${list.codes[index]}`} className="flex flex-col">
+                <div className="aspect-square relative group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`HTTP ${list.codes[index]} status dog`}
+                    className="w-full h-full object-cover border-b border-gray-200"
+                  />
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteImage(index);
+                    }}
+                    className="absolute top-1 right-1 p-1.5 bg-red-500/90 hover:bg-red-600 text-white rounded-full opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-150 shadow-sm"
+                    aria-label={`Delete HTTP ${list.codes[index]} image`}
+                  >
+                    <FiTrash2 className="w-4 h-4" />
+                  </button>
                 </div>
+                <div className="mt-2 p-3 bg-gray-50 rounded-lg shadow">
+                  <div className="text-sm font-semibold text-red-800">
+                    Response Code: {list.codes[index]}
+                  </div>
+                  <div className="text-xs text-gray-400 font-mono truncate">
+                    Image - [{image.replace('https://', '')}]
+                  </div>
+                </div>
+              </div>
             ))}
 
             {/* Empty state */}
