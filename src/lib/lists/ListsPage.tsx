@@ -242,21 +242,21 @@ const ListsPage: React.FC = () => {
               </div>
               
               <button
-                onClick={() => list.codes.length > 0 && handleViewList(list)}
-                disabled={list.codes.length === 0}
-                className={`w-full mt-auto py-2 px-4 rounded-lg text-sm flex items-center justify-between transition-colors ${
-                  list.codes.length === 0
-                    ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                    : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
-                }`}
-              >
-                <span>
-                  {list.codes.length > 0
-                    ? `View ${list.codes.length} items`
-                    : 'Add items from home'}
-                </span>
-                <FiChevronRight className="text-gray-500" />
-              </button>
+                  onClick={() => list.codes.length > 0 && handleViewList(list)}
+                  disabled={list.codes.length === 0}
+                  className={`w-full mt-auto py-2 px-4 rounded-lg text-sm flex items-center justify-between transition-colors ${
+                    list.codes.length === 0
+                      ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                      : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
+                  }`}
+                >
+                  <span>
+                    {list.codes.length > 0
+                      ? `View ${list.codes.length} items`
+                      : 'Add items from home'}
+                  </span>
+                  {list.codes.length > 0 && <FiChevronRight className="text-gray-500" />}
+                </button>
             </div>
           ))}
         </div>
